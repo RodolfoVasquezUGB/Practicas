@@ -1,0 +1,39 @@
+process.argv.forEach((index,val) => {
+    console.log(`${index}: ${val}`); 
+ });
+
+ const readline = require('readline');
+ const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+ 
+ rl.question('Ingresa el primer numero: ', (a) => {
+     if(!a) {
+         console.log('Necesitas ingresar ambos numeros para poder hacer la suma.');
+         return rl.close();
+     }
+     if(a <= 0) {
+         console.log('Ambos numeros deben ser positivos y mayores a cero!');
+         return rl.close();
+     }
+     if(isNaN(a)) {
+         console.log('Debes escribir un numero!');
+         return rl.close();
+     }
+     rl.question('Ingresa el segundo numero: ', (b) => {
+         if(!b) {
+             console.log('Necesitas ingresar ambos numeros para poder hacer la suma.');
+             return rl.close();
+         }
+         if(b <= 0) {
+             console.log('Ambos numeros deben ser positivos y mayores a cero!');
+             return rl.close();
+         }
+         if(isNaN(b)) {
+             console.log('Debes escribir un numero!');
+             return rl.close();
+         }
+         let suma = Number(a) + Number(b);
+         
+            console.log(`El resultado de la suma es ${suma}.`);
+         return rl.close();
+     });
+ });
